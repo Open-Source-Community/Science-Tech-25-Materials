@@ -1,0 +1,14 @@
+D:\visual studio programs\C# programs\Mastering C#\Veichle management system\bin\Debug\net8.0\Veichle management system.exe
+D:\visual studio programs\C# programs\Mastering C#\Veichle management system\bin\Debug\net8.0\Veichle management system.deps.json
+D:\visual studio programs\C# programs\Mastering C#\Veichle management system\bin\Debug\net8.0\Veichle management system.runtimeconfig.json
+D:\visual studio programs\C# programs\Mastering C#\Veichle management system\bin\Debug\net8.0\Veichle management system.dll
+D:\visual studio programs\C# programs\Mastering C#\Veichle management system\bin\Debug\net8.0\Veichle management system.pdb
+D:\visual studio programs\C# programs\Mastering C#\Veichle management system\obj\Debug\net8.0\Veichle management system.GeneratedMSBuildEditorConfig.editorconfig
+D:\visual studio programs\C# programs\Mastering C#\Veichle management system\obj\Debug\net8.0\Veichle management system.AssemblyInfoInputs.cache
+D:\visual studio programs\C# programs\Mastering C#\Veichle management system\obj\Debug\net8.0\Veichle management system.AssemblyInfo.cs
+D:\visual studio programs\C# programs\Mastering C#\Veichle management system\obj\Debug\net8.0\Veichle management system.csproj.CoreCompileInputs.cache
+D:\visual studio programs\C# programs\Mastering C#\Veichle management system\obj\Debug\net8.0\Veichle management system.dll
+D:\visual studio programs\C# programs\Mastering C#\Veichle management system\obj\Debug\net8.0\refint\Veichle management system.dll
+D:\visual studio programs\C# programs\Mastering C#\Veichle management system\obj\Debug\net8.0\Veichle management system.pdb
+D:\visual studio programs\C# programs\Mastering C#\Veichle management system\obj\Debug\net8.0\Veichle management system.genruntimeconfig.cache
+D:\visual studio programs\C# programs\Mastering C#\Veichle management system\obj\Debug\net8.0\ref\Veichle management system.dll
