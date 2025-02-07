@@ -33,55 +33,55 @@ interface Upgradeable {
 }
 
 abstract class Vehicle implements Drivable {
-    protected String modelName;
+    protected String model;
 
-    public Vehicle(String modelName) {
-        this.modelName = modelName;
+    public Vehicle(String model) {
+        this.model = model;
     }
 
     public void start() {
-        System.out.println(modelName + " is starting.");
+        System.out.println(model + " is starting.");
     }
 
     public void stop() {
-        System.out.println(modelName + " is stopping.");
+        System.out.println(model + " is stopping.");
     }
 
     public abstract void displayInfo();
 }
 
 class Car extends Vehicle implements Upgradeable {
-    public Car(String modelName) {
-        super(modelName);
+    public Car(String model) {
+        super(model);
     }
 
     public void accelerate() {
-        System.out.println(modelName + " (Car) is accelerating.");
+        System.out.println(model + " (Car) is accelerating.");
     }
 
     public void upgradeEngine() {
-        System.out.println(modelName + " (Car) engine is being upgraded.");
+        System.out.println(model + " (Car) engine is being upgraded.");
     }
 
     public void displayInfo() {
-        System.out.println("This is a car: " + modelName);
+        System.out.println("This is a car: " + model);
     }
 }
 
 class Bike extends Vehicle implements Upgradeable {
-    public Bike(String modelName) {
-        super(modelName);
+    public Bike(String model) {
+        super(model);
     }
 
     public void accelerate() {
-        System.out.println(modelName + " (Bike) is accelerating.");
+        System.out.println(model + " (Bike) is accelerating.");
     }
 
     public void upgradeEngine() {
-        System.out.println(modelName + " (Bike) engine is being upgraded.");
+        System.out.println(model + " (Bike) engine is being upgraded.");
     }
 
     public void displayInfo() {
-        System.out.println("This is a bike: " + modelName);
+        System.out.println("This is a bike: " + model);
     }
 }
