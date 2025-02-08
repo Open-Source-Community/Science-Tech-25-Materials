@@ -1,0 +1,65 @@
+interface Drivable{
+    void start();
+    void stop();
+    void accelerate();
+}
+
+interface Upgradeable{
+    void upgrade();
+}
+abstract class Vehicle implements Drivable{
+    String Model , color , price;
+
+    public void start(){
+        System.out.println("Vehicle start");
+    }
+    public void stop(){
+        System.out.println("Vehicle stopped");
+    }
+    public abstract void displayInformation();
+}
+
+class Car extends Vehicle{
+    String Model , color , price;
+    @Override
+    public void displayInformation() {
+        System.out.println("--- Car information ---");
+        System.out.println("Car Model: " + Model);
+        System.out.println("Car Color: " + color);
+        System.out.println("Car Price: " + price);
+        System.out.println("-----------------------");
+    }
+    @Override
+    public void accelerate(){
+        System.out.println("Car accelerate");
+    }
+
+}
+
+class UpgradeCar extends Car implements Upgradeable{
+    public void upgrade(){
+        System.out.println("Upgrade car engine");
+    }
+}
+
+class Bike extends Vehicle{
+    @Override
+    public void displayInformation() {
+        System.out.println("--- Bike information ---");
+        System.out.println("Bike Model: " + Model);
+        System.out.println("Bike Color: " + color);
+        System.out.println("Bike Price: " + price);
+        System.out.println("-----------------------");
+    }
+
+    @Override
+    public void accelerate(){
+        System.out.println("Bike accelerate");
+    }
+}
+
+class UpgradeBike extends Bike implements Upgradeable{
+    public void upgrade(){
+        System.out.println("Upgrade bike engine");
+    }
+}
