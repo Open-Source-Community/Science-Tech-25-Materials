@@ -1,0 +1,14 @@
+D:\visual studio programs\.NET Sessions\Solution1\Operator Overloading\bin\Debug\net8.0\Operator Overloading.exe
+D:\visual studio programs\.NET Sessions\Solution1\Operator Overloading\bin\Debug\net8.0\Operator Overloading.deps.json
+D:\visual studio programs\.NET Sessions\Solution1\Operator Overloading\bin\Debug\net8.0\Operator Overloading.runtimeconfig.json
+D:\visual studio programs\.NET Sessions\Solution1\Operator Overloading\bin\Debug\net8.0\Operator Overloading.dll
+D:\visual studio programs\.NET Sessions\Solution1\Operator Overloading\bin\Debug\net8.0\Operator Overloading.pdb
+D:\visual studio programs\.NET Sessions\Solution1\Operator Overloading\obj\Debug\net8.0\Operator Overloading.GeneratedMSBuildEditorConfig.editorconfig
+D:\visual studio programs\.NET Sessions\Solution1\Operator Overloading\obj\Debug\net8.0\Operator Overloading.AssemblyInfoInputs.cache
+D:\visual studio programs\.NET Sessions\Solution1\Operator Overloading\obj\Debug\net8.0\Operator Overloading.AssemblyInfo.cs
+D:\visual studio programs\.NET Sessions\Solution1\Operator Overloading\obj\Debug\net8.0\Operator Overloading.csproj.CoreCompileInputs.cache
+D:\visual studio programs\.NET Sessions\Solution1\Operator Overloading\obj\Debug\net8.0\Operator Overloading.dll
+D:\visual studio programs\.NET Sessions\Solution1\Operator Overloading\obj\Debug\net8.0\refint\Operator Overloading.dll
+D:\visual studio programs\.NET Sessions\Solution1\Operator Overloading\obj\Debug\net8.0\Operator Overloading.pdb
+D:\visual studio programs\.NET Sessions\Solution1\Operator Overloading\obj\Debug\net8.0\Operator Overloading.genruntimeconfig.cache
+D:\visual studio programs\.NET Sessions\Solution1\Operator Overloading\obj\Debug\net8.0\ref\Operator Overloading.dll
