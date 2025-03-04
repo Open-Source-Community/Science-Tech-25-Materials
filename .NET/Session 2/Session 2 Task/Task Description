@@ -1,0 +1,47 @@
+--------------------------------------------------
+C# Programming Task: Warehouse Inventory System
+--------------------------------------------------
+
+Implement a warehouse inventory system using these C# features:
+
+1. Product Structure
+- Create a Product struct with:
+  * ID (int)
+  * Name (string)
+  * Price (decimal)
+  * Stock (int)
+
+2. Warehouse Class
+- Create a Warehouse class that:
+  * Stores Products in a private collection
+  * Implements IEnumerable<Product> using yield return
+  * Has AddProduct and RestockProduct methods
+
+3. Stock Alerts System
+- Create a delegate StockAlertHandler
+- Add these events to Warehouse:
+  * ProductRestocked (when stock increases)
+  * LowStockWarning (when stock ≤ 3)
+
+4. Extension Method
+- Create "GetTotalValue" extension method for 
+  IEnumerable<Product> that calculates:
+  Total Value = Σ(Price × Stock) for all products
+
+5. Main Program
+- Create a Warehouse instance
+- Subscribe to events with console messages
+- Add sample products
+- Perform restock operations
+- Display:
+  * All products using foreach
+  * Total value using extension method
+  * Expensive products (price > 100) using yield
+
+Required Concepts:
+- struct
+- IEnumerable/yield return
+- delegate/event
+- extension method
+- foreach loop
+--------------------------------------------------
