@@ -1,0 +1,100 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Ashrafshams\\source\\repos\\LINQ session 3\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B156C3FD-C43C-4588-9227-AC973F1546F8}|LINQ session 3.csproj|c:\\users\\ashrafshams\\source\\repos\\linq session 3\\linq examples.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B156C3FD-C43C-4588-9227-AC973F1546F8}|LINQ session 3.csproj|solutionrelative:linq examples.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B156C3FD-C43C-4588-9227-AC973F1546F8}|LINQ session 3.csproj|c:\\users\\ashrafshams\\source\\repos\\linq session 3\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B156C3FD-C43C-4588-9227-AC973F1546F8}|LINQ session 3.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B156C3FD-C43C-4588-9227-AC973F1546F8}|LINQ session 3.csproj|c:\\users\\ashrafshams\\source\\repos\\linq session 3\\domains.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B156C3FD-C43C-4588-9227-AC973F1546F8}|LINQ session 3.csproj|solutionrelative:domains.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B156C3FD-C43C-4588-9227-AC973F1546F8}|LINQ session 3.csproj|c:\\users\\ashrafshams\\source\\repos\\linq session 3\\dataseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B156C3FD-C43C-4588-9227-AC973F1546F8}|LINQ session 3.csproj|solutionrelative:dataseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LINQ examples.cs",
+              "DocumentMoniker": "C:\\Users\\Ashrafshams\\source\\repos\\LINQ session 3\\LINQ examples.cs",
+              "RelativeDocumentMoniker": "LINQ examples.cs",
+              "ToolTip": "C:\\Users\\Ashrafshams\\source\\repos\\LINQ session 3\\LINQ examples.cs*",
+              "RelativeToolTip": "LINQ examples.cs*",
+              "ViewState": "AQIAADwCAAAACmVmZmYqwDsCAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-05T15:47:06.281Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DataSeeder.cs",
+              "DocumentMoniker": "C:\\Users\\Ashrafshams\\source\\repos\\LINQ session 3\\DataSeeder.cs",
+              "RelativeDocumentMoniker": "DataSeeder.cs",
+              "ToolTip": "C:\\Users\\Ashrafshams\\source\\repos\\LINQ session 3\\DataSeeder.cs",
+              "RelativeToolTip": "DataSeeder.cs",
+              "ViewState": "AQIAAA4AAADALjMzMzMiwBoAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-05T15:45:19.999Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Domains.cs",
+              "DocumentMoniker": "C:\\Users\\Ashrafshams\\source\\repos\\LINQ session 3\\Domains.cs",
+              "RelativeDocumentMoniker": "Domains.cs",
+              "ToolTip": "C:\\Users\\Ashrafshams\\source\\repos\\LINQ session 3\\Domains.cs",
+              "RelativeToolTip": "Domains.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAB2PSoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-05T15:44:13.788Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Ashrafshams\\source\\repos\\LINQ session 3\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Ashrafshams\\source\\repos\\LINQ session 3\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAABUAAABQzMzMzMwuwCEAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-05T15:00:24.78Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

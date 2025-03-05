@@ -1,0 +1,14 @@
+C:\Users\Ashrafshams\source\repos\LINQ session 3\bin\Debug\net8.0\LINQ session 3.exe
+C:\Users\Ashrafshams\source\repos\LINQ session 3\bin\Debug\net8.0\LINQ session 3.deps.json
+C:\Users\Ashrafshams\source\repos\LINQ session 3\bin\Debug\net8.0\LINQ session 3.runtimeconfig.json
+C:\Users\Ashrafshams\source\repos\LINQ session 3\bin\Debug\net8.0\LINQ session 3.dll
+C:\Users\Ashrafshams\source\repos\LINQ session 3\bin\Debug\net8.0\LINQ session 3.pdb
+C:\Users\Ashrafshams\source\repos\LINQ session 3\obj\Debug\net8.0\LINQ session 3.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ashrafshams\source\repos\LINQ session 3\obj\Debug\net8.0\LINQ session 3.AssemblyInfoInputs.cache
+C:\Users\Ashrafshams\source\repos\LINQ session 3\obj\Debug\net8.0\LINQ session 3.AssemblyInfo.cs
+C:\Users\Ashrafshams\source\repos\LINQ session 3\obj\Debug\net8.0\LINQ session 3.csproj.CoreCompileInputs.cache
+C:\Users\Ashrafshams\source\repos\LINQ session 3\obj\Debug\net8.0\LINQ session 3.dll
+C:\Users\Ashrafshams\source\repos\LINQ session 3\obj\Debug\net8.0\refint\LINQ session 3.dll
+C:\Users\Ashrafshams\source\repos\LINQ session 3\obj\Debug\net8.0\LINQ session 3.pdb
+C:\Users\Ashrafshams\source\repos\LINQ session 3\obj\Debug\net8.0\LINQ session 3.genruntimeconfig.cache
+C:\Users\Ashrafshams\source\repos\LINQ session 3\obj\Debug\net8.0\ref\LINQ session 3.dll
