@@ -1,0 +1,14 @@
+C:\Users\User\source\repos\osc_.net_task1\osc_.net_task1\bin\Debug\net9.0\osc_.net_task1.exe
+C:\Users\User\source\repos\osc_.net_task1\osc_.net_task1\bin\Debug\net9.0\osc_.net_task1.deps.json
+C:\Users\User\source\repos\osc_.net_task1\osc_.net_task1\bin\Debug\net9.0\osc_.net_task1.runtimeconfig.json
+C:\Users\User\source\repos\osc_.net_task1\osc_.net_task1\bin\Debug\net9.0\osc_.net_task1.dll
+C:\Users\User\source\repos\osc_.net_task1\osc_.net_task1\bin\Debug\net9.0\osc_.net_task1.pdb
+C:\Users\User\source\repos\osc_.net_task1\osc_.net_task1\obj\Debug\net9.0\osc_.net_task1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\source\repos\osc_.net_task1\osc_.net_task1\obj\Debug\net9.0\osc_.net_task1.AssemblyInfoInputs.cache
+C:\Users\User\source\repos\osc_.net_task1\osc_.net_task1\obj\Debug\net9.0\osc_.net_task1.AssemblyInfo.cs
+C:\Users\User\source\repos\osc_.net_task1\osc_.net_task1\obj\Debug\net9.0\osc_.net_task1.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\osc_.net_task1\osc_.net_task1\obj\Debug\net9.0\osc_.net_task1.dll
+C:\Users\User\source\repos\osc_.net_task1\osc_.net_task1\obj\Debug\net9.0\refint\osc_.net_task1.dll
+C:\Users\User\source\repos\osc_.net_task1\osc_.net_task1\obj\Debug\net9.0\osc_.net_task1.pdb
+C:\Users\User\source\repos\osc_.net_task1\osc_.net_task1\obj\Debug\net9.0\osc_.net_task1.genruntimeconfig.cache
+C:\Users\User\source\repos\osc_.net_task1\osc_.net_task1\obj\Debug\net9.0\ref\osc_.net_task1.dll
