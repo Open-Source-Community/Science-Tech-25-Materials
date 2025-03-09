@@ -1,13 +1,13 @@
-CONTENT :
-- intro to graph and trees its types and properities 
-	video : [Intro to Graph Theory](https://www.youtube.com/watch?v=LFKZLXVO-Dg)
-	article : [Intro to Graph Theory](https://www.datacamp.com/tutorial/introduction-to-graph-theory)
-	hands on : [Cow and Snacks](https://codeforces.com/contest/1209/problem/D)
+## CONTENT
 
-- graph traversal (dfs + bfs ) 
-	video : [DFS + BFS](https://www.youtube.com/watch?v=pcKY4hjDrxk&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=61)
-	article : [DFS + BFS](https://www.w3schools.com/dsa/dsa_algo_graphs_traversal.php)
-	hands on : [Mr. Kitayuta's Colorful Graph](https://codeforces.com/contest/505/problem/B)
+- DSU
+  - [article](https://cp-algorithms.com/data_structures/disjoint_set_union.html)
+  - [video](https://www.youtube.com/watch?v=wU6udHRIkcc)
+  - [hands on](https://www.geeksforgeeks.org/problems/disjoint-set-union-find/0)
 
-
+- prim + kruskal
+  - [video 1](https://www.youtube.com/watch?v=tKwnms5iRBU)
+  - [video 2](https://www.youtube.com/watch?v=4ZlRH0eK-qQ)
+  - [hands on 1](https://www.geeksforgeeks.org/problems/minimum-spanning-tree/1?ref=gcse_outind)
+    
 
