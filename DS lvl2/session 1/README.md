@@ -1,9 +1,9 @@
 ## CONTENT
 
 - intro to graph and trees, its types and properties
-  - video: [Intro to Graph Theory](https://www.youtube.com/watch?v=LFKZLXVO-Dg)
-  - article: [Intro to Graph Theory](https://www.datacamp.com/tutorial/introduction-to-graph-theory)
-  - hands on: [Cow and Snacks](https://codeforces.com/contest/1209/problem/D)
+  - [video](https://www.youtube.com/watch?v=LFKZLXVO-Dg)
+  - [article](https://www.datacamp.com/tutorial/introduction-to-graph-theory)
+  - [hands on](https://codeforces.com/contest/1209/problem/D)
 
 - graph traversal (DFS + BFS)
   - video: [DFS + BFS](https://www.youtube.com/watch?v=pcKY4hjDrxk&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=61)
