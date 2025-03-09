@@ -1,5 +1,8 @@
 ## CONTENT
 
+- spanning tree + MST
+    - [article](https://www.programiz.com/dsa/spanning-tree-and-minimum-spanning-tree)
+      
 - DSU
   - [article](https://cp-algorithms.com/data_structures/disjoint_set_union.html)
   - [video](https://www.youtube.com/watch?v=wU6udHRIkcc)
