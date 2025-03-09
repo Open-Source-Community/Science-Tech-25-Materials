@@ -1,0 +1,70 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\hadde\\OneDrive\\\u0633\u0637\u062D \u0627\u0644\u0645\u0643\u062A\u0628\\Projects\\ADO.NET.Example\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{58E8717C-39AB-4F49-BFA5-1257B38791F4}|ADO.NET.Example\\ADO.NET.Example.csproj|c:\\users\\hadde\\onedrive\\\u0633\u0637\u062D \u0627\u0644\u0645\u0643\u062A\u0628\\projects\\ado.net.example\\ado.net.example\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{58E8717C-39AB-4F49-BFA5-1257B38791F4}|ADO.NET.Example\\ADO.NET.Example.csproj|solutionrelative:ado.net.example\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{58E8717C-39AB-4F49-BFA5-1257B38791F4}|ADO.NET.Example\\ADO.NET.Example.csproj|c:\\users\\hadde\\onedrive\\\u0633\u0637\u062D \u0627\u0644\u0645\u0643\u062A\u0628\\projects\\ado.net.example\\ado.net.example\\ado.net.example.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{58E8717C-39AB-4F49-BFA5-1257B38791F4}|ADO.NET.Example\\ADO.NET.Example.csproj|solutionrelative:ado.net.example\\ado.net.example.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{c93a910a-0fa6-4307-93a4-f2bd61ec7828}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ADO.NET.Example.csproj",
+              "DocumentMoniker": "C:\\Users\\hadde\\OneDrive\\\u0633\u0637\u062D \u0627\u0644\u0645\u0643\u062A\u0628\\Projects\\ADO.NET.Example\\ADO.NET.Example\\ADO.NET.Example.csproj",
+              "RelativeDocumentMoniker": "ADO.NET.Example\\ADO.NET.Example.csproj",
+              "ToolTip": "C:\\Users\\hadde\\OneDrive\\\u0633\u0637\u062D \u0627\u0644\u0645\u0643\u062A\u0628\\Projects\\ADO.NET.Example\\ADO.NET.Example\\ADO.NET.Example.csproj",
+              "RelativeToolTip": "ADO.NET.Example\\ADO.NET.Example.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-03-09T09:00:14.055Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\hadde\\OneDrive\\\u0633\u0637\u062D \u0627\u0644\u0645\u0643\u062A\u0628\\Projects\\ADO.NET.Example\\ADO.NET.Example\\Program.cs",
+              "RelativeDocumentMoniker": "ADO.NET.Example\\Program.cs",
+              "ToolTip": "C:\\Users\\hadde\\OneDrive\\\u0633\u0637\u062D \u0627\u0644\u0645\u0643\u062A\u0628\\Projects\\ADO.NET.Example\\ADO.NET.Example\\Program.cs",
+              "RelativeToolTip": "ADO.NET.Example\\Program.cs",
+              "ViewState": "AQIAABYAAAAAAAAAAAAQwC8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-09T08:16:03.355Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
