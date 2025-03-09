@@ -5,7 +5,7 @@
   - [hands on](https://codeforces.com/problemset/problem/510/C)
 
 - cycle detection using topo sort
-  - [article]([https://www.w3schools.com/dsa/dsa_algo_graphs_traversal.php](https://www.geeksforgeeks.org/detect-cycle-in-directed-graph-using-topological-sort/))
+  - [article](https://www.geeksforgeeks.org/detect-cycle-in-directed-graph-using-topological-sort/)
   - [hands on](https://codeforces.com/problemset/problem/977/E)
 
 - cycle detection using dfs
