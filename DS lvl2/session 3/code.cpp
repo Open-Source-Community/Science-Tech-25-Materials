@@ -1,4 +1,4 @@
-#include<bits-stdc++.h>
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -50,7 +50,7 @@ vector<Edge> kruskal(int n, vector<Edge>& edges) {
 
 	return mst;
 }
-
+//////////////////////////////////////////////////////
 struct CompareEdge {
 	bool operator()(const Edge& a, const Edge& b) const {
 		return a.weight > b.weight; 
