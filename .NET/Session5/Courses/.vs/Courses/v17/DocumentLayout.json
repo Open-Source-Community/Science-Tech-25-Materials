@@ -1,0 +1,138 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\hadde\\OneDrive\\\u0633\u0637\u062D \u0627\u0644\u0645\u0643\u062A\u0628\\Projects\\Courses\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1EECCB37-8A53-48CC-969E-2024B14CEB89}|Courses\\Courses.csproj|c:\\users\\hadde\\onedrive\\\u0633\u0637\u062D \u0627\u0644\u0645\u0643\u062A\u0628\\projects\\courses\\courses\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1EECCB37-8A53-48CC-969E-2024B14CEB89}|Courses\\Courses.csproj|solutionrelative:courses\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1EECCB37-8A53-48CC-969E-2024B14CEB89}|Courses\\Courses.csproj|c:\\users\\hadde\\onedrive\\\u0633\u0637\u062D \u0627\u0644\u0645\u0643\u062A\u0628\\projects\\courses\\courses\\coursesdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1EECCB37-8A53-48CC-969E-2024B14CEB89}|Courses\\Courses.csproj|solutionrelative:courses\\coursesdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1EECCB37-8A53-48CC-969E-2024B14CEB89}|Courses\\Courses.csproj|c:\\users\\hadde\\onedrive\\\u0633\u0637\u062D \u0627\u0644\u0645\u0643\u062A\u0628\\projects\\courses\\courses\\model\\instructor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1EECCB37-8A53-48CC-969E-2024B14CEB89}|Courses\\Courses.csproj|solutionrelative:courses\\model\\instructor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1EECCB37-8A53-48CC-969E-2024B14CEB89}|Courses\\Courses.csproj|c:\\users\\hadde\\onedrive\\\u0633\u0637\u062D \u0627\u0644\u0645\u0643\u062A\u0628\\projects\\courses\\courses\\model\\department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1EECCB37-8A53-48CC-969E-2024B14CEB89}|Courses\\Courses.csproj|solutionrelative:courses\\model\\department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1EECCB37-8A53-48CC-969E-2024B14CEB89}|Courses\\Courses.csproj|c:\\users\\hadde\\onedrive\\\u0633\u0637\u062D \u0627\u0644\u0645\u0643\u062A\u0628\\projects\\courses\\courses\\model\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1EECCB37-8A53-48CC-969E-2024B14CEB89}|Courses\\Courses.csproj|solutionrelative:courses\\model\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1EECCB37-8A53-48CC-969E-2024B14CEB89}|Courses\\Courses.csproj|c:\\users\\hadde\\onedrive\\\u0633\u0637\u062D \u0627\u0644\u0645\u0643\u062A\u0628\\projects\\courses\\courses\\model\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1EECCB37-8A53-48CC-969E-2024B14CEB89}|Courses\\Courses.csproj|solutionrelative:courses\\model\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 9,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{c93a910a-0fa6-4307-93a4-f2bd61ec7828}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Department.cs",
+              "DocumentMoniker": "C:\\Users\\hadde\\OneDrive\\\u0633\u0637\u062D \u0627\u0644\u0645\u0643\u062A\u0628\\Projects\\Courses\\Courses\\Model\\Department.cs",
+              "RelativeDocumentMoniker": "Courses\\Model\\Department.cs",
+              "ToolTip": "C:\\Users\\hadde\\OneDrive\\\u0633\u0637\u062D \u0627\u0644\u0645\u0643\u062A\u0628\\Projects\\Courses\\Courses\\Model\\Department.cs",
+              "RelativeToolTip": "Courses\\Model\\Department.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-12T20:30:27.206Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Instructor.cs",
+              "DocumentMoniker": "C:\\Users\\hadde\\OneDrive\\\u0633\u0637\u062D \u0627\u0644\u0645\u0643\u062A\u0628\\Projects\\Courses\\Courses\\Model\\Instructor.cs",
+              "RelativeDocumentMoniker": "Courses\\Model\\Instructor.cs",
+              "ToolTip": "C:\\Users\\hadde\\OneDrive\\\u0633\u0637\u062D \u0627\u0644\u0645\u0643\u062A\u0628\\Projects\\Courses\\Courses\\Model\\Instructor.cs",
+              "RelativeToolTip": "Courses\\Model\\Instructor.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAzwBEAAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-12T20:29:15.241Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CoursesDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\hadde\\OneDrive\\\u0633\u0637\u062D \u0627\u0644\u0645\u0643\u062A\u0628\\Projects\\Courses\\Courses\\CoursesDbContext.cs",
+              "RelativeDocumentMoniker": "Courses\\CoursesDbContext.cs",
+              "ToolTip": "C:\\Users\\hadde\\OneDrive\\\u0633\u0637\u062D \u0627\u0644\u0645\u0643\u062A\u0628\\Projects\\Courses\\Courses\\CoursesDbContext.cs",
+              "RelativeToolTip": "Courses\\CoursesDbContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-12T20:14:21.162Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Student.cs",
+              "DocumentMoniker": "C:\\Users\\hadde\\OneDrive\\\u0633\u0637\u062D \u0627\u0644\u0645\u0643\u062A\u0628\\Projects\\Courses\\Courses\\Model\\Student.cs",
+              "RelativeDocumentMoniker": "Courses\\Model\\Student.cs",
+              "ToolTip": "C:\\Users\\hadde\\OneDrive\\\u0633\u0637\u062D \u0627\u0644\u0645\u0643\u062A\u0628\\Projects\\Courses\\Courses\\Model\\Student.cs",
+              "RelativeToolTip": "Courses\\Model\\Student.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAxwAoAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-12T20:12:36.125Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Course.cs",
+              "DocumentMoniker": "C:\\Users\\hadde\\OneDrive\\\u0633\u0637\u062D \u0627\u0644\u0645\u0643\u062A\u0628\\Projects\\Courses\\Courses\\Model\\Course.cs",
+              "RelativeDocumentMoniker": "Courses\\Model\\Course.cs",
+              "ToolTip": "C:\\Users\\hadde\\OneDrive\\\u0633\u0637\u062D \u0627\u0644\u0645\u0643\u062A\u0628\\Projects\\Courses\\Courses\\Model\\Course.cs",
+              "RelativeToolTip": "Courses\\Model\\Course.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAuwA8AAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-12T20:12:32.671Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\hadde\\OneDrive\\\u0633\u0637\u062D \u0627\u0644\u0645\u0643\u062A\u0628\\Projects\\Courses\\Courses\\Program.cs",
+              "RelativeDocumentMoniker": "Courses\\Program.cs",
+              "ToolTip": "C:\\Users\\hadde\\OneDrive\\\u0633\u0637\u062D \u0627\u0644\u0645\u0643\u062A\u0628\\Projects\\Courses\\Courses\\Program.cs",
+              "RelativeToolTip": "Courses\\Program.cs",
+              "ViewState": "AQIAACMAAAAAAAAAAAAQwD8AAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-12T17:48:27.916Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
