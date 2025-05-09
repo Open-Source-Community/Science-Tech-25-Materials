@@ -1,0 +1,14 @@
+D:\C#\Solutiony\Projecty\bin\Debug\net8.0\Projecty.exe
+D:\C#\Solutiony\Projecty\bin\Debug\net8.0\Projecty.deps.json
+D:\C#\Solutiony\Projecty\bin\Debug\net8.0\Projecty.runtimeconfig.json
+D:\C#\Solutiony\Projecty\bin\Debug\net8.0\Projecty.dll
+D:\C#\Solutiony\Projecty\bin\Debug\net8.0\Projecty.pdb
+D:\C#\Solutiony\Projecty\obj\Debug\net8.0\Projecty.GeneratedMSBuildEditorConfig.editorconfig
+D:\C#\Solutiony\Projecty\obj\Debug\net8.0\Projecty.AssemblyInfoInputs.cache
+D:\C#\Solutiony\Projecty\obj\Debug\net8.0\Projecty.AssemblyInfo.cs
+D:\C#\Solutiony\Projecty\obj\Debug\net8.0\Projecty.csproj.CoreCompileInputs.cache
+D:\C#\Solutiony\Projecty\obj\Debug\net8.0\Projecty.dll
+D:\C#\Solutiony\Projecty\obj\Debug\net8.0\refint\Projecty.dll
+D:\C#\Solutiony\Projecty\obj\Debug\net8.0\Projecty.pdb
+D:\C#\Solutiony\Projecty\obj\Debug\net8.0\Projecty.genruntimeconfig.cache
+D:\C#\Solutiony\Projecty\obj\Debug\net8.0\ref\Projecty.dll
