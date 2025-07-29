@@ -1,0 +1,7 @@
+﻿@model Employee
+
+<form method="post" action="/Employee/EditEmp/@Model.Id">
+    <input type="text" name="Name" value="@Model.Name" />
+    <input type="text" name="Salary" value="@Model.Salary" />
+    <input type="submit"/>
+</form>

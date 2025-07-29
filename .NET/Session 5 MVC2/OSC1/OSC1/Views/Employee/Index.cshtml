@@ -1,0 +1,11 @@
+﻿@model List<Employee>
+//loslly type
+//strong type
+<a href="/employee/new">New</a>
+@foreach(var item in Model)
+{
+    <h1>@item.Id</h1>
+    <h1>@item.Name</h1>
+    <h1>@item.Salary</h1>
+}
+<h2>@ViewBag.msg</h2>

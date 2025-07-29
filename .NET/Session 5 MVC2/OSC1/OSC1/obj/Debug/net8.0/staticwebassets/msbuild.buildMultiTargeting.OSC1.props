@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\OSC1.props" />
+</Project>
