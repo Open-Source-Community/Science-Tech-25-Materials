@@ -989,3 +989,1432 @@ public IActionResult check(string Username ,string Email ,string Address)
 ### **When to Use What?**
 - ✅ **Use Remote Validation (`[Remote]`)** when you need **real-time** checks (like checking if an email is taken).  
 - ✅ **Use Custom Validation (`ValidationAttribute`)** when you need **complex logic** or **server-only validation** (e.g., checking password strength).  
+
+-------------
+**1️- Partial View:**
+
+-  **A small, reusable Razor view.**
+    
+-  **Included in a larger view to render part of the page.**
+    
+    - Think of it like a **view _without_ its own layout** (no full page structure).
+        
+-  **Often used for:**
+    
+    - Reusable UI pieces (e.g., a product card, menu, footer).
+        
+    - Keeping code clean and modular.
+        
+    - Loading content dynamically via AJAX (e.g., updating a section without full reload).
+        
+
+---
+
+**How to create:**
+
+- The process is the **same as creating a normal view.**
+    
+- ✅ Just **check the option "Create as a partial view"** (in Visual Studio, for example).
+
+ - <img src="img/selcet.png" alt="Screenshot" width="1000"/>
+
+ ---
+ - it is recommended to start partial view with " _ " like `_EmoCard.cshtml
+
+``` csharp
+@model Employee
+
+<h1>@Model.Name</h1>
+<h2>@Model.DepartmentID</h2>
+<h2>@Model.Salary</h2>
+<h2>@Model.Address</h2>
+
+```
+##  Why you **don’t include things like:**
+
+- `ViewData`
+    
+- `<head>` tags
+    
+- `<script>` or `<link>` includes (like jQuery, CSS)
+    
+
+ **Because:**
+ 
+- The **partial view is _injected into_ a main view.**
+    
+- The **main view already has the full layout:**
+    
+    - HTML `<head>`, `<body>`, title, scripts, styles, etc.
+        
+- The partial view is meant to **focus only on the small section of content** it is responsible for. 
+ 
+ - As we see it can easy take a Model 
+ 
+ - #### **To include a Partial View in the Main View**:
+ 
+**1️⃣ Using HTML Helper:**
+``` csharp
+@Html.Partial("_NavPartial")
+```
+
+OR (recommended for async):
+``` csharp
+@await Html.PartialAsync("_NavPartial")
+```
+
+OR using **RenderPartial** (writes directly to the output stream):
+``` csharp
+@{   
+Html.RenderPartial("_NavPartial");
+//or 
+await Html.RenderPartialAsync("_NavPartial"); 
+}
+```
+✅ **Notes:**
+
+- `Html.Partial()` returns an `IHtmlContent` (you output it).
+    
+- `Html.RenderPartial()` writes directly to the response stream (slightly more efficient but less flexible in Razor pages).
+    
+
+---
+
+**2️⃣ Using Tag Helper ( _recommended_ for Razor Pages and MVC):**
+
+``` csharp
+ <partial name="_NavPartial" />
+```
+
+---
+
+## **Note:**
+ by default A **partial view** will **inherit the model** from the **parent (main) view** **unless you explicitly pass a different model.**
+
+##### -  What if you want to pass a **different model**?
+You can **explicitly pass a model** when rendering:
+
+1- By Tag Helper :
+``` csharp
+<partial name="_EmployeeDetails" model="Model.EmployeeDetails" />
+```
+`model` is an attribute , then pass it the new model you need 
+
+2- By Html Helper :
+``` csharp
+@await Html.PartialAsync("_EmployeeDetails", Model.EmployeeDetails);
+```
+
+---
+- At Action I Can Return a partial view :
+``` csharp
+public IActionResult EmpCardPartial(int id)
+{
+return PartialView("_EmpCard",EmployeeRepository.GetById(id));//Model=Null
+}
+
+```
+
+## We have a Question why we return a partial view ?
+
+**We return a partial view:**
+
+-  **When we don’t want to refresh the whole page**  
+    ➔ This is where **AJAX** comes in: you send an AJAX request, and the server returns **only the partial view**, which JavaScript injects into the page dynamically.
+    
+-  **When we want to reuse a small, specific part of the UI in multiple places**  
+    ➔ Even **without AJAX**, you can render partial views **inside other views** to avoid repeating code.
+
+
+---
+<img src="img/Ajax.png" alt="Ajax" width="1000"/>
+
+ 
+ - ###  AJAX Request
+  - it's used to update part of the page without reloading the whole thing.
+  
+  - ## But technically:
+
+- **The HTTP request itself is a _full request_.**
+    
+    - When you send an AJAX request using `XMLHttpRequest`, it **goes through the full HTTP pipeline:**
+        
+        - The browser sends **full HTTP headers, cookies, and body** (if applicable).
+            
+        - The server (like ASP.NET) sees it as a **normal HTTP request**.
+            
+- What makes it **feel "partial"** is **how you _handle the response on the client side._**
+    
+    - Instead of reloading the **whole page** (like with a normal form submission),
+        
+    - You **use JavaScript to update just part of the page** (e.g., a `<div>`, a table, a form section)
+
+- **XmlHttpRequest:**  
+    ➔ This is the JavaScript object that **creates and manages AJAX requests.** and received ***XML or JSON***  
+- **js "Dom":**  
+    ➔ After the response is received, **JavaScript updates the DOM (HTML content)** dynamically.
+- **CSS:**  
+    ➔ You can also manipulate CSS (styles) as part of the dynamic update.
+
+|**Aspect**|**Normal HTTP Request**|**AJAX (XMLHttpRequest / Partial Request)**|
+|---|---|---|
+|Request type|Full HTTP request|Full HTTP request|
+|How it's sent|Browser reload or form submit|JavaScript sends it (in background)|
+|Page reload?|Yes, whole page reloads|No, page stays as is|
+|What updates on the page?|Entire page is replaced with server response|Only parts of the page are updated via JavaScript|
+|Example|Submitting a contact form that reloads the page|Submitting a form and showing success without reload|
+|Headers & body|Full HTTP headers and body|Full HTTP headers and body|
+|Use case|Full page navigation|Dynamic page updates (e.g., live search, chat updates)|
+
+To implement Ajax :
+``` csharp
+@model List<Employee>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+<a asp-action="New" asp-controller="Employee">NEw</a>
+
+
+<div id="div1" style="border:2px solid blue"></div>
+
+
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>SAlary</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>@item.Salary</td>
+            <td>
+                <a href="/Employee/Edit/@item.Id">Edit</a>
+            </td>
+            <td>
+                <a href="/Employee/EmpCardPartial/@item.Id" onclick="GetEmpData(@item.Id)">Details</a>
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+<script src="~/lib/jquery/dist/jquery.js" ></script>
+<script>
+    function GetEmpData(EmpID) {
+        event.preventDefault();
+       
+		//Ajax Call Endpont using jquery
+        $.ajax({
+            url: "/Employee/EmpCardPartial/" + EmpID,
+            success: function (result) {
+                console.log(result);
+                $("#div1").html(result);
+            }
+        });
+
+    }
+</script>
+```
+
+1- We make a div with id="div1" to get the partial view on it 
+2- to use client side we used JS and Jquery , so we uploaded `Jquery`
+3- We used ` event.preventDefault();` ➔ to stop the anchor tag’s default behavior** (which is to make a full-page HTTP request to the `href` URL).
+4- using Ajax Call by Jquery by  a popular ready code:
+``` csharp
+        $.ajax({
+            url: "/Employee/EmpCardPartial/" + EmpID,
+            success: function (result) {
+                console.log(result);
+                $("#div1").html(result);
+            }
+        });
+```
+- We put Wanted URL ,and Dom for Wanted Div 
+- So We have made an ajax Call
+ 
+- -----------------
+Example using `AJAX`:
+	1- I want to make 2 drop-down lists , one for `Department` and other for `Employees`
+		at selected department 
+
+1- I load all Departments at Model
+2- add method for Employee to return all Department Id
+3- at department I return all employee result as a `JSON` file
+4- use Jquery and JS to make Partial Request
+
+1- Employee 
+``` csharp
+public List<Employee> GetByDEptID(int deptID)
+{
+    return context.Employee.Where(e=>e.DepartmentID== deptID).ToList();
+}
+```
+
+2- at Department Controller
+```csharp
+ public IActionResult GetEmpsByDEptId(int deptId)
+ {
+     List<Employee> EmpList= EmployeeREpo.GetByDEptID(deptId);
+     return Json(EmpList);
+ }
+```
+
+3- at Department View
+``` csharp
+@model List<Department>
+@{
+    ViewData["Title"] = "DeptEmps";
+}
+
+<h1>DeptEmps</h1>
+
+<select id="DeptId" name="DeptID" class="form form-control" onchange="GetEmp()">
+    @foreach(var deptItem in Model){
+        <option value="@deptItem.Id">@deptItem.Name</option>
+    }
+</select>
+<br />
+<select id="Emps" name="Emps" class="form form-control">
+</select>
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script>
+    function GetEmp() {
+        var deptID= document.getElementById("DeptId").value;
+        var empElement = document.getElementById("Emps");
+        empElement.innerHTML = "";
+        console.log(deptID);
+        //Ajax call json
+
+        $.ajax({
+            url: "/DEpartment/GetEmpsByDEptId?deptId=" + deptID
+            , success: function (result) {
+                console.log(result)
+                for (let emp of result) {
+                    empElement.innerHTML += "<option value='" + emp.id + "'>" + emp.name + "</option>";
+                }
+
+            }
+        });
+    }
+</script>
+
+
+```
+
+- First We Loaded All Departments, and use `onChange()` to every time I change the selected department I load it's employees by `GetEmp()` function
+``` csharp
+<select id="DeptId" name="DeptID" class="form form-control" onchange="GetEmp()">
+    @foreach(var deptItem in Model){
+        <option value="@deptItem.Id">@deptItem.Name</option>
+    }
+</select>
+```
+
+ - Then We make an Empty Select To load all Employee Related To Selected Department 
+``` csharp
+<select id="Emps" name="Emps" class="form form-control"></select>
+```
+
+- We use Jquery
+``` csharp
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script>
+    function GetEmp() {
+        var deptID= document.getElementById("DeptId").value;
+        var empElement = document.getElementById("Emps");
+        empElement.innerHTML = "";
+        console.log(deptID);
+        //Ajax call json
+
+        $.ajax({
+            url: "/DEpartment/GetEmpsByDEptId?deptId=" + deptID
+            , success: function (result) {
+                console.log(result)
+                for (let emp of result) {
+                    empElement.innerHTML += "<option value='" + emp.id + "'>" + emp.name + "</option>";
+                }
+            }
+        });
+    }
+</script>
+```
+`result` s the **data returned by the server when the AJAX request completes successfully**.
+
+Here’s what happens step-by-step:
+
+1. **The browser sends a request** to `/DEpartment/GetEmpsByDEptId?deptId=...`.
+    
+2. **Your server handles that request** and returns a response—usually JSON if you’re dealing with data.
+    
+3. **`result` holds that response data** (e.g., an array of employee objects like `[{ id: 1, name: 'Alice' }, ...]`).
+4. I Add The response values to the empty select 
+---
+- ## Routing 
+   - What is Routing :
+   **routing** refers to the system that **maps incoming HTTP requests to specific code**—typically controllers, actions, Razor pages, or endpoints.
+
+###     What it means:
+
+- When a user visits a URL like `/products/details/5`, routing figures out **which controller and action** (or page) should handle that request.
+    
+- The routing system **parses the URL** and **binds parameters** (like the `5` in the example) to your method’s parameters.
+
+
+Routing is doing by 2 types :
+
+- 1- **convention-based routing** :You can use **convention-based routing** (via route    templates like `{controller}/{action}/{id?}`) 
+- 2- **attribute routing** (via `[Route()]` attributes).
+
+---
+## 1- ***Convention-based routing***
+  - We need to know about URL 
+    1- `/` ➔ called a delimiter
+    2- /.../   or  /emp/ ➔ called Segmrnt
+  - so , **Convention-based routing** means:
+
+- You define a **general pattern** (a _convention_) that tells ASP.NET **how to map URLs to controller actions**.
+    
+- URLs that follow this **pattern** automatically map to your code **without needing special route definitions for each one.** 
+- pattern 
+``` csharp
+pattern: "{controller}/{action}/{id?}"
+```
+- `{controller}` → the **name of the controller** (minus `Controller`).
+    
+- `{action}` → the **method (action)** inside that controller.
+    
+- `{id?}` → an **optional parameter** (like a record ID).
+
+- the **pattern** can include:
+
+   1️⃣ **Placeholders**  
+   2️⃣ **Literals**
+
+---
+
+## 1️⃣ **Placeholders (Route Parameters)**
+
+These are **variable parts** of the URL, written inside `{ }`.
+
+➡️ Examples:
+
+- `{controller}`
+    
+- `{action}`
+    
+- `{id}`
+    
+
+ **What they do:**
+
+- **Capture part of the URL** and map it to a value.
+    
+- Are **dynamic**—they change based on what’s in the URL.
+    
+
+---
+
+**Example pattern:**
+
+``` csharp
+`"{controller}/{action}/{id?}"`
+```
+**URL:** `/Products/Details/5`
+
+|Part of the URL|Placeholder it matches|
+|---|---|
+|`Products`|`{controller}`|
+|`Details`|`{action}`|
+|`5`|`{id}`|
+
+---
+
+## 2️⃣ **Literals (Fixed Parts)**
+
+These are **hardcoded parts** of the pattern. They are **static** and must **exactly match** part of the URL.
+
+➡️ Examples:
+
+- `shop`
+    
+- `products`
+    
+- `api`
+    
+
+ **What they do:**
+
+- Must **be present in the URL** exactly as written.
+    
+- Are **not dynamic**—if the literal doesn't match, the route won’t match.
+---
+To enable routing, you need to call:
+
+``` csharp
+app.UseRouting();
+```
+
+This **adds the routing middleware** to the pipeline. It tells ASP.NET Core:
+
+> “We are going to process incoming URLs and match them to routes.”
+
+Without `UseRouting()`, **no routing will work.**
+
+- #### then We can customize our Routing 
+- Example :
+At Program .cs
+``` csharp
+app.MapControllerRoute("Route2", "R2",
+              new { controller = "Route", action = "Method2" }
+   );
+```
+
+At Route Controller
+``` csharp
+   public IActionResult Method2()
+   {
+       return Content("M2");
+   }
+```
+
+
+The **first parameter** of `MapControllerRoute()` is a **name for the route**. In this case, `"Route2"` is simply a **name** for the route being defined , <span style="color:gold"> it must be unique.</span>
+### Here's how it breaks down:
+
+1. **`"Route2"`** – This is the **name** of the route. It’s an identifier that you can use to reference or manage this route later, but it **doesn’t affect the URL matching** directly. It's mainly for **internal reference**.
+    
+2. **`"R2"`** – This is the **URL pattern** that will be used to match incoming requests. So, any request to `/R2` will be mapped to this route.
+    
+3. **`new { controller = "Route", action = "Method2" }`** – This part defines the **controller** and **action** that will be invoked when the route is matched:
+    
+    - **Controller:** `RouteController`
+        
+    - **Action:** `Method2`
+        
+4. We can Directly Write for the URL `/R2/` then Will go to Wanted Method 
+### **How Does It Work?**
+
+- When someone visits `/R2` in the browser, this route is triggered.
+
+- The request will then be directed to the **`RouteController`** and will invoke the **`Method2`** action inside that controller.
+
+
+- if the method receives an attribute like :
+``` csharp
+   public IActionResult Method2(string name)
+   {
+       return Content("M2");
+   }
+```
+we use :
+``` lua
+/R2?name=ali
+```
+- attribute must be same name as called in url 
+
+- We Can Add constrains like :
+
+| **Constraint** | **Description**                                                         | **Example**                         |
+| -------------- | ----------------------------------------------------------------------- | ----------------------------------- |
+| alpha          | Matches uppercase or lowercase Latin alphabet characters (a-z, A-Z)     | `{x:alpha}`                         |
+| bool           | Matches a Boolean value.                                                | `{x:bool}`                          |
+| datetime       | Matches a **DateTime** value.                                           | `{x:datetime}`                      |
+| decimal        | Matches a decimal value.                                                | `{x:decimal}`                       |
+| double         | Matches a 64-bit floating-point value.                                  | `{x:double}`                        |
+| float          | Matches a 32-bit floating-point value.                                  | `{x:float}`                         |
+| guid           | Matches a GUID value.                                                   | `{x:guid}`                          |
+| int            | Matches a 32-bit integer value.                                         | `{x:int}`                           |
+| length         | Matches a string with the specified length or within a specified range. | `{x:length(6)}`, `{x:length(1,20)}` |
+| long           | Matches a 64-bit integer value.                                         | `{x:long}`                          |
+| max            | Matches an integer with a maximum value.                                | `{x:max(10)}`                       |
+| maxlength      | Matches a string with a maximum length.                                 | `{x:maxlength(10)}`                 |
+| min            | Matches an integer with a minimum value.                                | `{x:min(10)}`                       |
+| minlength      | Matches a string with a minimum length.                                 | `{x:minlength(10)}`                 |
+| range          | Matches an integer within a range of values.                            | `{x:range(10,50)}`                  |
+| regex          | Matches a regular expression.                                           | `{x:regex(^\d{3}-\d{3}-\d{4}$)}`    |
+- like :
+``` csharp
+app.MapControllerRoute("Route2", "R2/{name}/{age:int}",
+              new { controller = "Route", action = "Method2" }
+   );
+```
+
+- makes third segment name must be same for for method attribute 
+    like :
+``` csharp
+ public IActionResult Method2(string name)
+ {
+     return Content("M2");
+ }
+```
+
+``` csharp
+app.MapControllerRoute("Route2", "R2/{name}",
+              new { controller = "Route", action = "Method2" }
+   );
+```
+- Will pass attribute value by `/name`
+
+- We can also make segment is optional like 
+``` csharp
+app.MapControllerRoute("Route2", "R2/{age:int}/{name?}",
+              new { controller = "Route", action = "Method2" }
+   );
+```
+
+- we should make optional segment the last segment 
+- we can make default value for the segment by :
+``` csharp
+app.MapControllerRoute("Route2", "R2/{name=ali}",
+              new { controller = "Route", action = "Method2" }
+   );
+```
+
+- ## ***Note :***
+- Most Customized Route must be first then we put default Route
+- 
+``` csharp
+app.MapControllerRoute("Route2", "R2/{controller}/{action}");
+```
+- Here We can use Controller , Action For URL , it is the default for Microsoft so , We can put it at last 
+---
+
+**the best practice in software architecture (especially in C# and ASP.NET environments)** is to follow this flow:
+###  **Model → Repository → Controller**
+
+This layered approach promotes separation of concerns, maintainability, and testability. Here's what each layer is responsible for:
+
+Note: 
+  A **Repository** is a class (or interface + class) that:
+
+- Encapsulates the logic required to **access data sources** (e.g., SQL Server, MongoDB, APIs).
+    
+- Provides **CRUD (Create , Read , Update , Delete ) operations** for a specific model.
+    
+- Hides all the low-level database details from the rest of the app
+
+this approach is called <span style ="color:gold">Repository Pattern</span> we try not to write code at controller
+
+So : 
+ **Controller** interacts with the **Repository**, and the **Repository** interacts with the **Database Context** (often referred to as the **DbContext** in Entity Framework for C#).
+#  SOLID Principles in C# 
+##  1. Single Responsibility Principle (SRP)
+
+###  What It Means:
+
+> A class should have only one reason to change.  
+
+Each class should focus on a single task/responsibility, which improves **maintainability**, **testability**, and **readability**.
+
+---
+### ❌ Violates SRP
+
+```csharp
+
+public class UserManager
+{
+
+    public void AddUser(string username)
+    {
+
+        // Add user logic
+
+    }
+
+    public void SendNotification(string message)
+    {
+
+        // Send notification logic
+
+    }
+}
+
+```
+
+### ✅ Applies SRP
+
+```csharp
+
+public class UserManager
+{
+
+    private readonly IUserRepository _userRepository;
+
+    public UserManager(IUserRepository userRepository)
+    {
+
+        _userRepository = userRepository;
+
+    }
+
+  
+
+    public void AddUser(string username)
+    {
+
+        // Add user logic
+
+    }
+
+}
+
+  
+
+public class NotificationService
+{
+
+    public void SendNotification(string message)
+
+    {
+
+        // Send notification logic
+
+    }
+
+}
+
+```
+
+  
+> 🔧 Now, each class has **one responsibility** only:  
+
+`UserManager` manages users, `NotificationService` sends notifications.
+
+---
+##  2. Open/Closed Principle (OCP)
+
+- ### What It Means:
+
+> A class should be **open for extension**, but **closed for modification**.  
+
+We should be able to add new functionality without changing existing code.
+
+  
+
+---
+### ❌ Violates OCP
+
+```csharp
+
+public class PaymentProcessor
+{
+
+    public void ProcessPayment(string type)
+    {
+
+        if (type == "CreditCard")
+        {
+
+            // CreditCard logic
+
+        }
+
+        else if (type == "PayPal")
+        {
+
+            // PayPal logic
+
+        }
+
+    }
+
+}
+
+```
+
+###  Applies OCP
+
+```csharp
+
+public interface IPaymentMethod
+{
+
+    void ProcessPayment(decimal amount);
+
+}
+
+  
+public class CreditCardPayment : IPaymentMethod
+{
+
+    public void ProcessPayment(decimal amount)
+
+    {
+
+        // CreditCard logic
+
+    }
+
+}
+
+
+public class PayPalPayment : IPaymentMethod
+{
+    public void ProcessPayment(decimal amount)
+
+    {
+
+        // PayPal logic
+
+    }
+}
+  
+
+public class PaymentProcessor
+{
+
+    public void ProcessPayment(IPaymentMethod paymentMethod, decimal amount)
+    // pass credit or paypal obj  
+    {
+
+        paymentMethod.ProcessPayment(amount);
+
+    }
+
+}
+
+```
+
+  
+
+> 🔧 Add new payment types **without modifying** `PaymentProcessor`.
+
+  
+
+---
+##  3. Liskov Substitution Principle (LSP)
+###  What It Means:
+
+> Subclasses must be replaceable for their base classes **without breaking functionality**.  
+
+Ensure subclasses behave correctly when used in place of their parent class.
+
+---
+###  Violates LSP
+
+```csharp
+
+public class Bird
+{
+
+    public virtual void Fly()
+
+    {
+
+        // Flying logic
+
+    }
+
+}
+
+public class Ostrich : Bird
+{
+
+    public override void Fly()
+
+    {
+
+        throw new NotImplementedException(); // Ostriches can't fly
+
+    }
+
+}
+
+```
+##  Applies LSP
+
+```csharp
+
+public abstract class Bird
+{
+
+    public abstract void Move();
+
+}
+
+public class Sparrow : Bird
+{
+
+    public override void Move()
+    {
+
+        // Flying logic
+
+    }
+
+}
+
+
+public class Ostrich : Bird
+{
+
+    public override void Move()
+    {
+
+        // Running logic
+
+    }
+}
+```
+
+  
+
+> 🔧 All subclasses can now be used **interchangeably** via `Move()` without causing errors.
+
+  
+
+---
+##  4. Interface Segregation Principle (ISP)
+###  What It Means:
+
+> Clients should not be forced to depend on interfaces they **don’t use**.  
+
+Split large interfaces into **smaller, role-specific ones**.
+
+---
+### ❌ Violates ISP
+
+```csharp
+
+public interface IWorker
+{
+
+    void Work();
+
+    void Eat(); // Not needed for Robot
+
+}
+
+  
+
+public class Robot : IWorker
+{
+
+    public void Work() { /* Work logic */ }
+
+    public void Eat()
+    {
+
+        throw new NotImplementedException(); // Robots don't eat
+
+    }
+
+}
+```
+### ✅ Applies ISP
+
+```csharp
+
+public interface IWorkable
+{
+
+    void Work();
+
+}
+
+  
+
+public interface IFeedable
+{
+
+    void Eat();
+
+}
+
+  
+
+public class Robot : IWorkable
+{
+
+    public void Work() { /* Work logic */ }
+
+}
+
+  
+
+public class Human : IWorkable, IFeedable
+{
+
+    public void Work() { /* Work logic */ }
+
+    public void Eat() { /* Eat logic */ }
+
+}
+
+```
+
+  
+
+> 🔧 Each class **implements only what it needs**, reducing bloated interfaces.
+
+---
+##  5. Dependency Inversion Principle (DIP)
+###  What It Means:
+
+> High-level modules should not depend on low-level modules.  
+
+> Both should depend on **abstractions**.
+---
+### ❌ Violates DIP
+
+```csharp
+
+public class PaymentProcessor
+{
+    private readonly CreditCardPayment _payment = new CreditCardPayment();
+
+    public void ProcessPayment(decimal amount)
+    {
+        _payment.Process(amount);
+    }
+
+}
+
+public class CreditCardPayment
+{
+    public void Process(decimal amount)
+    {
+        // Payment logic
+    }
+}
+
+```
+###  Applies DIP
+
+```csharp
+
+public interface IPaymentMethod
+{
+
+    void Process(decimal amount);
+
+}
+
+public class CreditCardPayment : IPaymentMethod
+{
+    public void Process(decimal amount)
+    {
+
+        // Payment logic
+    }
+}
+
+public class PaymentProcessor
+{
+    private readonly IPaymentMethod _paymentMethod;
+
+    public PaymentProcessor(IPaymentMethod paymentMethod)
+    {
+        _paymentMethod = paymentMethod;
+    }
+    public void ProcessPayment(decimal amount)
+
+    {
+        _paymentMethod.Process(amount);
+    }
+}
+
+```
+
+> 🔧 The `PaymentProcessor` depends on **abstraction**, not on concrete classes. Easier to switch implementations (e.g., to PayPal or Crypto).
+
+<a href="https://www.linkedin.com/posts/ahmed-elghrabawy_what-is-dependency-injection-in-net-activity-7278411902983000065-2CCp?utm_source=share&utm_medium=member_android&rcm=ACoAAD7r_gIBuWxSSJqAEeiHbd7WSxStnQ72ivk">Strongly Recommended To Read About Dependency Injection</a>
+
+---
+##  Final Summary
+
+| Principle | Full Name             | Key Idea                                                |
+| --------- | --------------------- | ------------------------------------------------------- |
+| **S**     | Single Responsibility | One job per class                                       |
+| **O**     | Open/Closed           | Extend behavior without modifying code                  |
+| **L**     | Liskov Substitution   | Subclasses should fully work in place of parents        |
+| **I**     | Interface Segregation | Avoid forcing classes to implement what they don’t need |
+| **D**     | Dependency Inversion  | Rely on abstractions, not concrete implementations      |
+
+- Suppose we have two models to implement: Employee and Department.  
+We have three folders:
+
+1. Repository (contains interfaces and repository classes),
+    
+2. Model (contains the actual models),
+    
+3. Controllers (contains the controllers for the models).  
+    Remember, we try not to write model logic inside the controllers.
+
+
+  example on Employee Method :
+  1- Employee Model
+``` csharp
+public class Employee
+{
+    public int Id { get; set; }
+
+    //        [Required]
+    [MinLength(2,ErrorMessage ="Name Must be greater than 2 char")]
+    [MaxLength(25)]
+    [Unique]
+    public string Name { get; set; }
+
+    //[Range(6000,25000,ErrorMessage ="Salary mustbe range 6000 to 25000")]
+    [Remote("CheckSalary","Employee"
+        ,AdditionalFields = "JobTitle"
+        , ErrorMessage ="Salary greater than 6000 L.E")]
+    public int Salary { get; set; }
+
+    public string JobTitle { get; set; }
+
+    [RegularExpression(@"\w+\.(jpg|png)",ErrorMessage ="Image must Be jpg or png")]
+    public string ImageURL { get; set; }
+
+
+    public string? Address { get; set; }
+   
+    [ForeignKey("Department")]
+    [Display(Name="Department")]
+    public int DepartmentID { get; set; }
+
+    public Department? Department { get; set; }
+}
+```
+
+2- Employee Repository:
+- Employee Interface 
+``` csharp
+ public interface IEmployeeRepository
+ {
+     public void Add(Employee obj);
+
+     public void Update(Employee obj);
+
+     public void Delete(int id);
+
+     public List<Employee> GetAll();
+     public Employee GetById(int id);
+
+     public void Save();
+   
+ }
+```
+
+- Employee Repository
+ ``` csharp
+public class EmployeeRepository:IEmployeeRepository
+{
+    ITIContext context;
+    public EmployeeRepository()
+    {
+        context = new ITIContext();
+    }
+    //CRUD
+    public void Add(Employee obj)
+    {
+        context.Add(obj);
+    }
+    public void Update(Employee obj)
+    {
+        context.Update(obj);
+
+    }
+
+    public void Delete(int id)
+    {
+        Employee Emp = GetById(id);
+        context.Remove(Emp);
+    }
+    public List<Employee> GetAll()
+    {
+        return context.Employee.ToList();
+    }
+    public Employee GetById(int id)
+    {
+        return context.Employee.FirstOrDefault(e => e.Id == id);
+    }
+    public void Save()
+    {
+        context.SaveChanges();
+    }
+}
+ ```
+
+3- Employee Controller (inject By Constructor): 
+``` csharp
+ public class EmployeeController : Controller
+ {
+     //  ITIContext context = new ITIContext();
+     IEmployeeRepository EmployeeRepository;
+     public EmployeeController(IEmployeeRepository EmpRepo)
+     {
+         EmployeeRepository = EmpRepo;
+     }
+ }
+
+   // Actions to implement 
+
+```
+
+- After this implementation we have a problem that the Controller Factory can't create an instance of EmployeeRepository to pass it as a parameter to the controller constructor because :
+ 
+     - The `EmployeeController` needs an `IEmployeeRepository` passed **into** its constructor.
+       
+    - But ASP.NET MVC **by default** does not know _how to create_ an `IEmployeeRepository`.
+    
+    - So the **Controller Factory** (the part that creates controllers) **throws an error** because it can't build `EmployeeController` automatically
+    
+--- 
+
+- To Fix the exception we implement `IoC` Container (**`Inversion of Control`**). 
+   : Instead of a class creating its own dependencies, someone else (usually a framework or container) injects those dependencies into the class or creating the needed objects?
+
+- in .net IoC Called Service Provider , how IoC containers work : 
+    - We usually deal with **three key operations**:
+
+| Term         | Meaning (Simple)                                                                                                 | Example                                                                          |
+| ------------ | ---------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| **Register** | Tell the IoC container _which classes_ to create when asked for an interface.                                    | `builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();`         |
+| **Resolve**  | Ask the IoC container _to give you an instance_ of a registered service. (Happens automatically in Controllers.) | Controller constructor parameter: `EmployeeController(IEmployeeRepository repo)` |
+| **Dispose**  | Free or clean up objects _after they finish_. This happens automatically if you use DI properly.                 | The container disposes your repository instance after the request ends.          |
+                                                                                                                                                                                               
+
+- ##  quick summary:
+
+| Step         | Action                                                         |
+| ------------ | -------------------------------------------------------------- |
+| **Register** | Add service to the container.                                  |
+| **Resolve**  | Get an instance when needed (e.g., in controller constructor). |
+| **Dispose**  | Automatically clean up the service after use.                  |
+
+---
+<H3 style="  text-align: center">Services Type</H3> 
+-  There are basically two types of services in ASP.NET Core
+
+| Type                   | Declared         | Registered                  | Example                                                      |
+| ---------------------- | ---------------- | --------------------------- | ------------------------------------------------------------ |
+| **Framework Services** | Already declared | Already registered          | `ILogger<T>`, `IHttpContextAccessor`                         |
+| **Built-in Services**  | Already declared | Must be registered manually | `AddDbContext<>`, `AddAuthentication()`                      |
+| Custom Services        | Not declared     | Not Registered              | `AddTransient<>()` <br>`AddScoped<>()`<br>`AddSingleton<>()` |
+
+
+- ## 1- Register
+
+- it's Called by the host before the Configure method to configure the app's services
+
+``` csharp
+   public static void Main(string[] args)
+   {
+       var builder = WebApplication.CreateBuilder(args);
+       //Framwork service :already decalre ,alraedy register
+       //built in service :already delcare ,need to register
+       // Add services to the container.
+       builder.Services.AddControllersWithViews();
+       //Custom Servce "RegisterB
+       builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>(); 
+       
+       var app = builder.Build();
+
+       app.Run();
+   }
+     
+```
+
+``` csharp
+ builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>(); 
+```
+You're telling the ASP.NET Core **Dependency Injection (DI) container** that when a class (like a controller) **requests** an instance of `IEmployeeRepository`, the container should create (resolve) an instance of `EmployeeRepository`.
+
+- ###  Life-Time of Custom Service :
+
+| Lifetime                            | Behavior                                                                  |
+| ----------------------------------- | ------------------------------------------------------------------------- |
+| `builder.Services.AddTransient<>()` |  New object is created **every time** it’s requested/injected.            |
+| `builder.Services.AddScoped<>()`    | One object **per HTTP request** (or per created scope).                   |
+| `builder.Services.AddSingleton<>()` | One object for the **whole application lifetime** (same instance always). |
+
+---
+- ## 2- Resolve (at controller)
+1- inject (ask) by ***constructor*** :
+``` csharp
+ public EmployeeController(IEmployeeRepository EmpRepo)
+ {
+     EmployeeRepository = EmpRepo;
+ }
+```
+- In this constructor, ASP.NET Core uses dependency injection to automatically provide an instance of `IEmployeeRepository` when creating the `EmployeeController`, as long as the service is properly registered in the DI container.
+
+2- inject by ***Action***
+
+``` csharp
+public IActionResult Details([FromServices] IEmployeeRepository employeeRepository)
+    {
+        var employee = employeeRepository.GetById(id);
+        return View(employee);
+    }
+```
+- When you use **Action Injection** in a controller, the **[FromServices]** attribute tells the Dependency Injection (DI) system to **inject the service directly into the action parameter**, ignoring any model binding that might otherwise be used.
+- examples :
+    <img src="img/from.png" alt="Screenshot" width="500"/>
+
+ 
+| Attribute               | Where the value comes from                  | Example                                            |
+| ----------------------- | ------------------------------------------- | -------------------------------------------------- |
+| **[FromBody]**          | Request body (usually JSON) (API)           | `POST` data (like a JSON object)                   |
+| **[FromForm]**          | Form fields (like HTML forms)               | `<form method="post">`                             |
+| **[FromHeader]**        | HTTP request headers                        | e.g., `Authorization` header                       |
+| **[FromKeyedServices]** | From DI container **by key**                | Special keyed services in DI (advanced use)        |
+| **[FromQuery]**         | URL query string parameters                 | `/api/items?id=5`                                  |
+| **[FromRoute]**         | URL route parameters                        | `/api/items/5` (id from route)                     |
+| **[FromServices]**      | From the **dependency injection container** | Inject a service like a logger or business service |
+
+## 3 - Inject by _**View**_
+
+### _**Note:**_
+
+- Before we talk about injecting services into a view, we can make the `Repository` folder easier to access everywhere by creating a **global using**.
+    
+- To do this, add the following line (for example, in a `GlobalUsings.cs` file):
+    
+
+``` csharp 
+global using MVC.Repository;
+```
+
+- This way, you don't need to manually add `using MVC.Repository;` in every file — it becomes automatically available across the whole project.
+
+- ### How to Inject a Service in a View
+
+ - Use the `@inject` directive at the top of your `.cshtml` view.
+``` csharp
+@inject IDepartmentRepository deptREpo
+@{
+    ViewData["Title"] = "Index";
+}
+<h1>Index</h1>
+<h3>Id From View @deptREpo.Id</h3>
+```
+
+- ### Note: 
+    `Id = Guid.NewGuid().ToString();`  it returns unique id every time You call it .
+-----
+- If You remember at employee repository :
+``` csharp
+public EmployeeRepository()
+    {
+        context = new ITIContext();
+    }
+```
+- the `context = new ITIContext();` inside the constructor of `EmployeeRepository` violates the Dependency Injection (DI) principle. In a Dependency Injection pattern, dependencies (like the `ITIContext`) should be provided externally, rather than being created inside the class. This allows for easier testing, better flexibility, and separation of concerns.
+
+- In this case, you should inject the `ITIContext` into the constructor of `EmployeeRepository` instead of creating it directly in the constructor by: 
+
+
+- 1 -  We're using `appsettings.json` to store the connection string, which is a great approach to avoid hardcoding sensitive information like database credentials. The configuration in `appsettings.json` should look like this:
+
+``` json
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*",
+  "ConnectionStrings": {
+    "cs": "Data Source=.;Initial Catalog=ITI;Integrated Security=True;Encrypt=False;Trust Server Certificate=True"
+  }
+}
+```
+
+2- adding a constructor to our `ITIContext` class that accepts `DbContextOptions` is required to use the configuration provided through the `appsettings.json` file. The goal here is to pass the configuration (e.g., connection string) to the `DbContext` via the `DbContextOptions`:
+
+``` csharp
+public class ITIContext : DbContext
+{
+    public ITIContext(DbContextOptions<ITIContext> options) : base(options){}
+    // DbSets, etc.
+}
+
+```
+  - This constructor ensures that `ITIContext` can be configured using the `DbContextOptions` that will be set up via the DI container.
+
+
+ 3- In your `Program.cs` or `Startup.cs` (depending on your ASP.NET Core version), you're registering `ITIContext` in the DI container. The `UseSqlServer` method will use the connection string from `appsettings.json`:
+
+``` csharp
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        var builder = WebApplication.CreateBuilder(args);
+
+        // Add DbContext to the DI container with the connection string
+        builder.Services.AddDbContext<ITIContext>(options =>
+        {
+    options.UseSqlServer(builder.Configuration.GetConnectionString("cs"));
+        });
+
+        // Other services...
+
+        var app = builder.Build();
+
+        // Other middleware...
+    }
+}
+
+```
+
+
+4- our `EmployeeRepository` now has the `ITIContext` injected via its constructor:
+
+``` csharp
+public class EmployeeRepository
+{
+    private readonly ITIContext _context;
+    public EmployeeRepository(ITIContext context)
+    {
+        _context = context;
+    }
+}
+```
+### Key Points:
+
+- **Appsettings.json**: The connection string is pulled from the configuration, so no hardcoding is needed.
+    
+- **DbContext Constructor**: The `ITIContext` constructor is modified to accept `DbContextOptions`.
+    
+- **DI Registration**: In `Program.cs` or `Startup.cs`, `ITIContext` is registered with the DI container using `AddDbContext`.
+    
+- **Repository Constructor**: `EmployeeRepository` accepts `ITIContext` via constructor injection.
+
+### ***Note*** :
+- The method `builder.Services.AddDbContext<ITIContext>(options => { ... })` registers the `DbContext` (in this case `ITIContext`) in the **Dependency Injection (DI)** container. Once you register the `DbContext`, it can be injected into any service or class that requires it.
+
+- `AddDbContext` registers the `DbContext` to be injected into classes that depend on it. In other words, you cannot directly use `ITIContext` unless the class is being injected via **Dependency Injection**.
+
+-  in custom validation, use the **default constructor** (`public ITIContext() : base()`), and you don't use DI to inject the context, it will work properly but it violates DI , We apply it by :
+``` csharp
+public class UniqueEmailAttribute : ValidationAttribute
+{
+    protected override ValidationResult IsValid(object value, ValidationContext validationContext)
+    {
+        var dbContext = (ITIContext)validationContext
+                            .GetService(typeof(ITIContext)); // uses DI
+
+        var email = value as string;
+        if (dbContext.Users.Any(u => u.Email == email))
+        {
+            return new ValidationResult("Email already exists");
+        }
+
+        return ValidationResult.Success;
+    }
+}
+```
+---
