@@ -1,6 +1,6 @@
 ---
 
-# 📘 ASP.NET MVC Course Content (AR / EN)
+# 📘 ASP.NET MVC Session 1 Content
 
 ---
 
@@ -65,17 +65,17 @@
 
 ## 9. Project Overview
 
-#### 🔸 Project Structure
-#### 🔸 WWWRoot
-#### 🔸 Models
-#### 🔸 Controllers and types of actions
-#### 🔸 Views and Razor Engine
+- Project Structure
+- WWWRoot
+- Models
+- Controllers and types of actions
+- Views and Razor Engine
 
 ## 10. GetAllData (Index Action)
 
-#### 🔸 Model (Product Class, Sample Data)
-#### 🔸 Controller (ProductController, Index Action)
-#### 🔸 View (Index.cshtml)
+- Model (Product Class, Sample Data)
+- Controller (ProductController, Index Action)
+- View (Index.cshtml)
 
 ## 11. Model Types (Strong Type, Lossly Type)
 
@@ -83,19 +83,19 @@
 
 ## 13. Middlewares and Flow of the Request
 
-#### 🔸 The Flow of the Reuest (Client -> IIS -> Proxy Server (Kestral) -> Pipeline (Middlewares))
+- The Flow of the Reuest (Client -> IIS -> Proxy Server (Kestral) -> Pipeline (Middlewares))
 
 ## 14. Pass Data To View
 
-#### 🔸 Model
-#### 🔸 ViewData
-#### 🔸 ViewBag
-#### 🔸 ViewModel
+- Model
+- ViewData
+- ViewBag
+- ViewModel
 
 ## 15. State Mangement
 
-#### 🔸 every time a user sends a new request (like moving to a new page), the server forgets everything about that user unless we store the state somewhere because HTTP protocol is stateless.
+- every time a user sends a new request (like moving to a new page), the server forgets everything about that user unless we store the state somewhere because HTTP protocol is stateless.
 
-#### 🔸 TempData
-#### 🔸 Session
-#### 🔸 Cookies
+- TempData
+- Session
+- Cookies
