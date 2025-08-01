@@ -14,7 +14,7 @@
 ## 2. Web App Hosting
 
 - Web apps need to be **hosted** on a server to be accessed online.
-- Hosting types: Shared, VPS, Cloud (Azure, AWS).
+- Hosting Servers Like Apache, IIS (Windows only).
 
 ---
 
@@ -29,10 +29,8 @@
 
 ## 4. Development Types of Web Apps
 
-- Static Web Apps
-- Dynamic Web Apps
-- SPA (Single Page App)
-- PWA (Progressive Web App)
+- Full Website
+- Backend + Frontend
 
 ---
 
@@ -54,61 +52,28 @@
 ## 7. Create New Project
 
 - Open Visual Studio → Create New ASP.NET Core Web App (Model-View-Controller).
-- Choose .NET version, enable HTTPS.
+- Choose .NET version, disable HTTPS.
 
 ---
 
 ## 8. Virtual Hosting vs Self Hosting
 
-- **Virtual Hosting:** Hosted on IIS, Nginx, or Apache.
+- **Virtual Hosting:** Hosted on IIS Express.
 - **Self Hosting:** Use Kestrel directly to run app.
 
 ---
 
-## 9. Project Overview and GetAllData (Index Action)
+## 9. Project Overview
 
 #### 🔸 Project Structure
+#### 🔸 WWWRoot
+#### 🔸 Models
+#### 🔸 Controllers and types of actions
+#### 🔸 Views and Razor Engine
 
-```
-/Models         => contains the Employee class
-/Controllers    => contains EmployeeController.cs
-/Views
-   /Employee    => contains Index.cshtml, Create.cshtml
-```
+## 10. GetAllData (Index Action)
 
-#### 🔸 Model
-
-```csharp
-public class Employee
-{
-    public int Id { get; set; }
-    public string Name { get; set; }
-    public double Salary { get; set; }
-}
-```
-
-#### 🔸 Controller (Index)
-
-```csharp
-public IActionResult Index()
-{
-    var employees = _context.Employees.ToList();
-    return View(employees);
-}
-```
-
+#### 🔸 Model (Product Class, Sample Data)
+#### 🔸 Controller (ProductController, Index Action)
 #### 🔸 View (Index.cshtml)
 
-```html
-@model List<Employee>
-
-<table>
-@foreach (var emp in Model)
-{
-    <tr>
-        <td>@emp.Id</td>
-        <td>@emp.Name</td>
-        <td>@emp.Salary</td>
-    </tr>
-}
-</table>
